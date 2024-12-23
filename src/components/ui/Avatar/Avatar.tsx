@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as Avatar from "@radix-ui/react-avatar";
 
-const AvatarDemo = () => {
+const AvatarHeader = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showMessage, setShowMessage] = useState(false);
 
@@ -19,7 +19,7 @@ const AvatarDemo = () => {
 
   return (
     <div
-      className="flex gap-5 select-none relative"
+      className="flex gap-5 select-none relative "
       onMouseMove={handleMouseMove}
     >
       <a
@@ -29,7 +29,7 @@ const AvatarDemo = () => {
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} 
       >
-        <Avatar.Root className="flex items-center justify-center overflow-hidden w-16 h-16 rounded-full border-blue-500 hover:border-2 bg-gray-200">
+        <Avatar.Root className="flex items-center justify-center overflow-hidden w-16 h-16 rounded-full group-hover:animate-border-glow hover:border-2 bg-gray-200 ">
           <Avatar.Image
             className="w-full h-full object-cover rounded-full"
             src="https://avatars.githubusercontent.com/u/106880173?v=4"
@@ -62,4 +62,36 @@ const AvatarDemo = () => {
   );
 };
 
-export default AvatarDemo;
+export default AvatarHeader;
+
+
+
+
+export const AvatarHome = () => {
+  return (
+    <div className="flex gap-5 select-none relative">
+     <a
+     href="https://github.com/HenriqueFMA"
+     target="_blank"
+     draggable="false"
+     
+     >
+     <Avatar.Root className="group flex items-center justify-center overflow-hidden w-44 h-44 rounded-full border-4 border-transparent bg-gray-200  hover:transition-transform hover:duration-500">
+  <Avatar.Image
+    className="w-full h-full object-cover rounded-full"
+    src="https://avatars.githubusercontent.com/u/106880173?v=4"
+    alt="Colm Tuite"
+    draggable="false"
+  />
+  <Avatar.Fallback
+    className="flex items-center justify-center text-white bg-gray-600 text-sm font-medium"
+  >
+    CT
+  </Avatar.Fallback>
+  <div className="absolute inset-0 rounded-full border-4 border-transparent animate-none group-hover:animate-border-glow"></div>
+</Avatar.Root>
+
+     </a>
+    </div>
+  );
+};

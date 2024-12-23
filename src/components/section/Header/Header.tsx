@@ -1,11 +1,12 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import AvatarDemo from "../../ui/Avatar/Avatar";
+import AvatarHeader from "../../ui/Avatar/Avatar";
 import { LanguageNameContext } from "../../../lib/LangueageProvider";
 import { FaHome } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { TbFolderCode } from "react-icons/tb";
 import { RxBarChart } from "react-icons/rx";
 import { GrAchievement } from "react-icons/gr";
+
 
 interface Props {
   setScreen: React.Dispatch<React.SetStateAction<string>>;
@@ -18,17 +19,19 @@ const Header = ({ setScreen, screen }: Props) => {
   const [button2, setButton2] = useState("Experiences");
   const [button3, setButton3] = useState("Projects");
   const [visible, setVisible] = useState(false);
-  const [fade, setFade] = useState(false); // Controle para a transição
+  const [fade, setFade] = useState(false); 
+  const [visibleAvatar, setVisibleAvatar] = useState(true);
+
+
 
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   console.log(screen + " header");
 
   const handleButtonClick = () => {
-    setFade(true); // Inicia o fade-out
+    setFade(true); 
 
     setTimeout(() => {
-      // Após o fade-out, muda o conteúdo
       if (name === "PT") {
         setName("EN");
         setButton1("Skills");
@@ -43,21 +46,26 @@ const Header = ({ setScreen, screen }: Props) => {
         setImagePath("/src/assets/bandeiranacionalbrasil.png");
       }
 
-      setFade(false); // Inicia o fade-in
-    }, 300); // Tempo suficiente para o fade-out terminar (coincide com a duração da animação)
+      setFade(false);
+    }, 300); 
   };
 
 
   const handleButtonClickNavigate = (screen: string) => {
+
     setScreen(screen);
-    setVisible(false); // Fecha o menu ao navegar
+    if(screen === "home"){
+      setVisibleAvatar(true);
+    }else{
+      setVisibleAvatar(false);
+    }
+    setVisible(false); 
   };
 
   const handleButtonClickVisible = () => {
     setVisible((prev) => !prev);
   };
 
-  // Fecha o menu ao clicar fora
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -77,11 +85,14 @@ const Header = ({ setScreen, screen }: Props) => {
       <header className="flex justify-between h-20 w-full shrink-0 items-center px-4 md:px-6 lg:justify-around">
 
             <div className="flex-shrink-0 hover:scale-95  ">
-              <AvatarDemo />
+            {  !visibleAvatar && (
+              <AvatarHeader />
+            )}
+            
             </div>
 
         
-           <div className=" gap-2 md:flex hidden">
+           <div className=" gap-2 md:flex hidden ">
            <button
               className="bg-black border-x-0 border-t-0  border-gray-300 text-white px-4 py-2  select-none hover:scale-x-100 hover:text-blue-500 "
               onClick={() => handleButtonClickNavigate("home")}
@@ -165,48 +176,49 @@ const Header = ({ setScreen, screen }: Props) => {
       </header>
 
       {visible && (
-              <div
-                ref={menuRef}
-                className="flex bg-black flex-col mt-0.5  absolute md:hidden shadow-slate-100 shadow-md py-4 rounded-lg  right-4 max-w-xs w-[50%] overflow-auto gap-0 align-middle items-center"
-              >
-                <div className="align-middle items-center flex gap-5">
-                  <text className="text-white ml-9 text-2xl">Menu</text>
-                  <div
-                    onClick={() => setVisible(false)}
-                    className="bg-black text-white"
-                  >
-                    <IoClose />
-                  </div>
-                </div>
-                <button
-                  className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
-                  onClick={() => handleButtonClickNavigate("home")}
-                >
-                  <FaHome size={23} /> <text>Home</text>
-                </button>
-                <button
-                  className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
-                  onClick={() => handleButtonClickNavigate("Skills")}
-                >
-                  <RxBarChart />
-                  {button1}
-                </button>
-                <button
-                  className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
-                  onClick={() => handleButtonClickNavigate("Experiences")}
-                >
-                  <GrAchievement />
-                  {button2}
-                </button>
-                <button
-                  className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
-                  onClick={() => handleButtonClickNavigate("Projects")}
-                >
-                  <TbFolderCode size={23} />
-                  {button3}
-                </button>
-              </div>
-            )}
+  <div
+    ref={menuRef}
+    className="flex bg-black flex-col mt-0.5 absolute md:hidden shadow-slate-100 shadow-md py-4 rounded-lg right-4 max-w-xs w-[50%] overflow-auto gap-0 align-middle items-center z-50"
+  >
+    <div className="align-middle items-center flex gap-5">
+      <text className="text-white ml-9 text-2xl">Menu</text>
+      <div
+        onClick={() => setVisible(false)}
+        className="bg-black text-white"
+      >
+        <IoClose />
+      </div>
+    </div>
+    <button
+      className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
+      onClick={() => handleButtonClickNavigate("home")}
+    >
+      <FaHome size={23} /> <text>Home</text>
+    </button>
+    <button
+      className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
+      onClick={() => handleButtonClickNavigate("Skills")}
+    >
+      <RxBarChart />
+      {button1}
+    </button>
+    <button
+      className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
+      onClick={() => handleButtonClickNavigate("Experiences")}
+    >
+      <GrAchievement />
+      {button2}
+    </button>
+    <button
+      className="bg-black text-white px-4 py-2 rounded select-none w-full border-t-1 border-b-1 border-gray-500 flex gap-x-6 align-middle items-center"
+      onClick={() => handleButtonClickNavigate("Projects")}
+    >
+      <TbFolderCode size={23} />
+      {button3}
+    </button>
+  </div>
+)}
+
 
     </div>
   );
