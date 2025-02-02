@@ -30,7 +30,7 @@ const Experiences = () => {
             ],
           },
           {
-            title: "Monitor de Laboratório - Linguagem de Programação I",
+            title: "Monitor de Laboratório - Linguagem de Programação II",
             institution: "Universidade Estadual da Paraíba (UEPB), Patos-PB",
             period: "mar/2024",
             description: [
@@ -58,7 +58,7 @@ const Experiences = () => {
             ],
           },
           {
-            title: "Lab Monitor - Programming Language I",
+            title: "Lab Monitor - Programming Language II",
             institution: "State University of Paraíba (UEPB), Patos-PB",
             period: "Mar/2024",
             description: [
@@ -76,7 +76,7 @@ const Experiences = () => {
   return (
     <div className="mt-32 text-white select-none overflow-x-hidden">
       {/* Título */}
-      <h2 className="m-8 sm:m-16 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">
+      <h2 className="m-8 sm:m-16 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-start">
       {texts.title}
       </h2>
 
@@ -85,7 +85,7 @@ const Experiences = () => {
         {texts.experiences.map((experience, index) => (
           <Card
             key={index}
-            className="flex flex-col p-8 w-full max-w-[90%] sm:max-w-[200px] items-center justify-start"
+            className="flex flex-col p-8 w-full max-w-[90%] sm:max-w-[600px] items-center justify-start"
           >
             <CardTitle className="scroll-m-20 text-2xl sm:text-3xl font-extrabold tracking-tight text-white text-center">
               {experience.title}
