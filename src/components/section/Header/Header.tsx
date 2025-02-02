@@ -37,13 +37,13 @@ const Header = ({ setScreen, screen }: Props) => {
         setButton1("Skills");
         setButton2("Experiences");
         setButton3("Projects");
-        setImagePath("/src/assets/bandeiraUSA.png");
+        setImagePath("/assets/bandeiraUSA.png");
       } else {
         setName("PT");
         setButton1("Habilidades");
         setButton2("Experiências");
         setButton3("Projetos");
-        setImagePath("/src/assets/bandeiranacionalbrasil.png");
+        setImagePath("/assets/bandeiranacionalbrasil.png");
       }
 
       setFade(false);

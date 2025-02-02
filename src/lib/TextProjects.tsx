@@ -1,6 +1,6 @@
 export const texts = {
     PT: {
-      title: "Experiências",
+      title: "Projetos",
       experiences: [
         {
           title: "  Implementação-de-autonomos AFD,AFNe e AFNe",
@@ -14,13 +14,13 @@ export const texts = {
             description: [
               "Um jogo de divulgação científica com o objetivo de ensinar conceitos de redes, como DNS, IP e roteamento. Além disso, incorpora elementos de criptografia e hacking de maneira lúdica e envolvente."
             ],
-            link:"https://github.com/ArthurNobrega1/dns-game/issues"
+            link:"https://github.com/ArthurNobrega1/dns-game"
           },
         
       ],
     },
     EN: {
-      title: "Experience",
+      title: "Projects",
       experiences: [
         {
           title: "Implementation of Finite Automata: AFD, AFN, and AFNe",
@@ -36,7 +36,7 @@ export const texts = {
             description: [
               "A science communication game designed to teach network concepts such as DNS, IP, and routing. It also incorporates elements of cryptography and hacking in a playful and engaging way."
             ],
-            link:"https://github.com/ArthurNobrega1/dns-game/issues"
+            link:"https://github.com/ArthurNobrega1/dns-game"
           },
       ],
     },

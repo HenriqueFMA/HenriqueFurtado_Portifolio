@@ -23,7 +23,7 @@ const [title,setTitle] = useState("Skills");
   };
 
   return (
-    <div className="mt-32 text-white select-none h-screen">
+    <div className="mt-32 text-white select-none h-screen max-h-full">  
       <h2 className="m-16 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         {title}
       </h2>

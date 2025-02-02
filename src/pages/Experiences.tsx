@@ -35,7 +35,7 @@ const Experiences = () => {
             period: "mar/2024",
             description: [
               "Prestação de suporte técnico e acadêmico aos estudantes na disciplina de POO (Programação Orientada a Objetos).",
-              "Auxiliava na resolução de problemas relacionados às linguagens de programação  Java.",
+              "Auxiliava na resolução de problemas relacionados às linguagens de programação Java.",
               "Desenvolvimento de materiais didáticos e orientação na resolução de exercícios e projetos.",
               "Auxiliava o professor na preparação e condução das aulas práticas no laboratório, garantindo um ambiente dinâmico e colaborativo.",
             ],
@@ -74,19 +74,23 @@ const Experiences = () => {
   };
 
   return (
- <div className="mt-32 text-white select-none ">
-      <h2 className="m-16 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">        {texts.title}
-      </h2>  
-      <div className="flex flex-wrap justify-center gap-8">
+    <div className="mt-32 text-white select-none overflow-x-hidden">
+      {/* Título */}
+      <h2 className="m-8 sm:m-16 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">
+      {texts.title}
+      </h2>
+
+      {/* Container das experiências */}
+      <div className="flex flex-wrap justify-center gap-4 px-4">
         {texts.experiences.map((experience, index) => (
           <Card
             key={index}
-            className="flex flex-col p-8 lg:w-[600px] lg:h-auto items-center justify-start"
+            className="flex flex-col p-8 w-full max-w-[90%] sm:max-w-[200px] items-center justify-start"
           >
-            <CardTitle className="scroll-m-20 text-4xl font-extrabold tracking-tight text-white lg:text-3xl text-center">
+            <CardTitle className="scroll-m-20 text-2xl sm:text-3xl font-extrabold tracking-tight text-white text-center">
               {experience.title}
             </CardTitle>
-            <CardDescription className="mt-4 text-xl font-semibold text-gray-300 text-center">
+            <CardDescription className="mt-4 text-lg font-semibold text-gray-300 text-center">
               {experience.institution}
             </CardDescription>
             <span className="mt-2 text-gray-400 text-sm">{experience.period}</span>

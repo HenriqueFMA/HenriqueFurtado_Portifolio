@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <div className={`bg-black ${isDesktop ? 'h-screen' : 'h-auto'}`}>
+      <div className={`bg-black ${isDesktop ? 'h-screen' : 'h-full'} overflow-x-hidden`}>
         <LanguageProvider>
           <Header setScreen={setScreen} screen={screen}/>
           <Toaster />

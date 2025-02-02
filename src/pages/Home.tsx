@@ -87,7 +87,7 @@ const Home = () => {
       </Card>
 
       <div className="hidden lg:flex lg:items-center">
-        <img src='src\assets\programming-animate.svg' alt="programming" className="w-[600px] mr-48" draggable="false"/>
+      <img src="/assets/programming-animate.svg" alt="programming" className="w-[600px] mr-48" />
       </div>
     </div>
   );

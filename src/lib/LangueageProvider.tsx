@@ -16,7 +16,7 @@ export const LanguageNameContext = createContext<LanguageContextProps>({
 
 export const LanguageProvider = ({ children }) => {
   const [name, setName] = useState("EN");
-  const [imagePath, setImagePath] = useState("/src/assets/bandeiraUSA.png"); 
+  const [imagePath, setImagePath] = useState("/assets/bandeiraUSA.png"); 
 
   return (
     <LanguageNameContext.Provider value={{ name, setName, imagePath, setImagePath }}>
